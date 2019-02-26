@@ -3,16 +3,13 @@
 var lettersGuessed = [];
 var guessesLeft = 7;
 var wins = 0;
-
 //select random letter using random function
-var randomLetter =
-    String.fromCharCode(
-        Math.round(Math.random() * 26) + 97
-    );
+var randomLetter = String.fromCharCode(Math.round(Math.random() * 26) + 97);
 
+// show random selection in concole
 console.log(randomLetter);
 
-//collect users guess as lowercase
+//collect users guess as lowercase for guesses to match
 document.onkeydown = function(event) {
     var keyPress = (String.fromCharCode(event.keyCode)).toLowerCase();
 
@@ -29,7 +26,7 @@ function userGuessList (userGuess) {
 
         //show user's guess
         printLetters();
-        
+        // set for funciton match
         guessMatch(userGuess);
     
 
@@ -40,7 +37,7 @@ function printLetters() {
     var list = lettersGuessed.join(", ");
     document.getElementById("userGuesses").innerHTML = list;
 }
-
+// use fucntion to compare guess and random letter
 function guessMatch (guess) {
 
     console.log(guess);
