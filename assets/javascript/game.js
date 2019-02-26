@@ -37,8 +37,8 @@ function userGuessList (userGuess) {
 
 //print letters guessed
 function printLetters() {
-    var tempStr = lettersGuessed.join(", ");
-    document.getElementById("userGuesses").innerHTML = tempStr;
+    var list = lettersGuessed.join(", ");
+    document.getElementById("userGuesses").innerHTML = list;
 }
 
 function guessMatch (guess) {
