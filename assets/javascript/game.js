@@ -1,3 +1,5 @@
+
+//Global variables
 var lettersGuessed = [];
 var guessesLeft = 7;
 var wins = 0;
@@ -18,27 +20,18 @@ document.onkeydown = function(event) {
 
 }
 
-//alert of duble guesses and then print guesses
+//alert of double guesses or  print guesses
 function userGuessList (userGuess) {
 
-
-    var repeatGuess = lettersGuessed.some(function(item){
-        return item === userGuess;
-    })
-
-    //alert if repeated
-    if (repeatGuess) {
-        alert("Already guessed. Try again!");
-// check if its the word
-    } else {
+  
         lettersGuessed.push(userGuess);
         console.log(lettersGuessed);
 
-        //show user's input in browser
+        //show user's guess
         printLetters();
-        //is user's input a match to computer guess
+        
         guessMatch(userGuess);
-    }
+    
 
 }
 
@@ -48,39 +41,26 @@ function printLetters() {
     document.getElementById("userGuesses").innerHTML = tempStr;
 }
 
-function guessMatch (character) {
+function guessMatch (guess) {
 
-    console.log(character);
+    console.log(guess);
     console.log(randomLetter);
-
-    if (character === randomLetter) {
-
+        
+    // check for correct guess
+    if (guess === randomLetter) {
         alert("Winner Winner!");
-        wins = wins + 1;
-        showWins();
-
-    } else if (guessesLeft === 0) {
+    } 
+    // if not correct the alert wrong
+    else if (guessesLeft === 0) {
         alert("You Lose. Try agian");
-        resetVariables ();
+        clear ();
 
-    } else {
-        guessesLeft = guessesLeft - 1;
-        showGuessesRemaining();
     }
+   
 }
 
 // Show wins
 
 // Show loses
 
-
-
-
-function startGame() {
-    showGuessesRemaining();
-    showWins();
-}
-
-
-
-startGame();
+// Play again
